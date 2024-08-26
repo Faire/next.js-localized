@@ -1,0 +1,5 @@
+{
+  "client.component.message": "[en-GB] Client component message!",
+  "client.inline.message": "[en-GB] Client inline message!",
+  "server.inline.message": "[en-GB] Server inline message!"
+}

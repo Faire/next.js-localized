@@ -1,0 +1,5 @@
+{
+  "client.component.message": "[da-DK] Klient komponent besked!",
+  "client.inline.message": "[da-DK] Klient inline besked!",
+  "server.inline.message": "[da-DK] Server inline besked!"
+}
