@@ -1,7 +1,7 @@
 import "server-only";
+import type { IntlShape } from "@formatjs/intl";
 import { getIntl } from "@/lib/dictionary";
 import { getLocaleHeader } from "@/lib/headers";
-import { IntlShape } from "@formatjs/intl";
 
 type FormatMessage = IntlShape<string>["formatMessage"];
 

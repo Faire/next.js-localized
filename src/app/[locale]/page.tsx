@@ -1,10 +1,9 @@
+import Image from "next/image";
 import { ClientComponent } from "@/components/ClientComponent";
 import { defaultLocale, locales } from "@/lib/locale";
 import { serverSideLocalize } from "@/lib/serverSideLocalize";
-import Link from "next/link";
-import "./page.css";
-import Image from "next/image";
 import { LocaleSwitchLink } from "@/components/LocaleSwitchLink";
+import "./page.css";
 
 export default function Home() {
   return (

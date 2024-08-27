@@ -2,7 +2,7 @@ import { defaultLocale, getLocaleFromPathname, Locale } from "@/lib/locale";
 import type { RequestHandler } from "next/dist/server/next";
 import type { IncomingMessage, ServerResponse } from "node:http";
 
-const decoder = new TextDecoder("utf-8");
+const decoder = new TextDecoder();
 
 const transformChunkWithLocale = (
   locale: Locale | undefined,

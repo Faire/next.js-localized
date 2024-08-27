@@ -1,7 +1,7 @@
 "use client";
 
 import { defaultLocale, Locale } from "@/lib/locale";
-import React, { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { IntlProvider as ReactIntlProvider } from "react-intl";
 import { getDictionary } from "@/lib/dictionary";
 

@@ -1,6 +1,6 @@
 import "server-only";
-import { getLocaleFromString, Locale, localeHeader } from "@/lib/locale";
 import { headers } from "next/headers";
+import { getLocaleFromString, Locale, localeHeader } from "@/lib/locale";
 
 export const getLocaleHeader = (): Locale => {
   const localeString = headers().get(localeHeader);

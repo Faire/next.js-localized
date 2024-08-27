@@ -1,7 +1,7 @@
-import { defaultLocale, Locale } from "@/lib/locale";
 import fs from "fs";
 import { MessageFormatElement } from "react-intl";
 import { createIntl, IntlShape } from "@formatjs/intl";
+import { defaultLocale, Locale } from "@/lib/locale";
 
 type Dictionary =
   | Record<string, MessageFormatElement[]>

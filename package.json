@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:express": "NODE_ENV=development tsx   ./src/server/server.ts",
-    "build": "yarn build:next && yarn build:express",
+    "dev:server": "NODE_ENV=development tsx ./src/server/server.ts",
+    "build": "yarn build:next && yarn build:server",
     "start": "NODE_ENV=production node ./build/server/server.js",
     "build:next": "next build && tsx ./scripts/localize.ts",
-    "build:express": "rm -rf build && tsc --project tsconfig.express.json && tsc-alias --project tsconfig.express.json"
+    "build:server": "rm -rf build && tsc --project tsconfig.express.json && tsc-alias --project tsconfig.express.json"
   },
   "dependencies": {
     "@babel/core": "^7.25.2",
