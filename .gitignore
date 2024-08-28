@@ -2,7 +2,6 @@
 
 # dependencies
 /node_modules
-/.yarn/unplugged
 
 # next.js
 /.next/
