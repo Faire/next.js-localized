@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Faire's Next.js Localization Starter Kit
+
+This repo is designed as a starting point for performant localization
+in Next.js.
+
+## Features
+
+- **Build-time splitting of translations**: Translations are split into
+	separate files at build time, so that only the necessary translations
+	are shipped to the browser.
+- **Server and client side formatting**: Translations can occur both in server and client components.
+- **Fully customizable locale structure**: You can define your own list of locales in [`locale.ts`](src/lib/locale.ts) and the [`dictionaries`](dictionaries) directory, and the build script will automatically generate the necessary files.
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-npm run dev
+yarn dev # to run the native Next.js dev server (recommended)
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn dev:server # to run the custom express server that handles localizing chunk output (slower)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [`http://localhost:3000`](http://localhost:3000) with your browser to see the result!
+Note that localization does not work in development mode, as the build script is not run. For more information, see TMP.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production build
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To enable localization for the app, it must be run as a production build. To do this, run:
 
-## Learn More
+```bash
+yarn build
+yarn start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## FAQs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Why doesn't localization work in development mode?
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Localization is a build-time process, and the build script is not run in development mode. This is because Next.js automatically recreates the .next folder in development mode, so running the script to create the localized chunks would not work.
 
-## Deploy on Vercel
+In theory, localization would still work for server-rendered translations as they read
+directly from the dictionaries, but this is omitted to prevent confusion as to why some
+messages are not translated.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### How can I add or change the accepted locales?
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+You can define your own list of locales in [`locale.ts`](src/lib/locale.ts), along with a default locale. Once you have done so, be sure to include all of your dictionary JSON files in the [`dictionaries`](dictionaries) directory (except for your default locale), and the build script will automatically generate the necessary files.
+
+### Do I need to use `LocaleSwitchLink` for every link in my app?
+
+No, you only need to use LocaleSwitchLink when you want to change between locales (for instance, redirecting from /en-US to /fr-FR). For links that should stay within the same locale, you can use Next.js's built-in `Link` component.
+
+### How can I access the current locale in my components?
+
+In server components, you can use [`getLocaleHeader`](src/lib/headers.ts). For client components, you can use the `useIntl` hook from react-intl.
