@@ -26,6 +26,7 @@ const patchStream = (
   const originalWrite = res.write;
   res.write = (...params) => {
     const [chunk, ...rest] = params;
+    // Don't modify responses for internal next.js assets themselves, just the HTML chunks that reference them.
     if (!isNextAssetRequest(req)) {
       const transformedChunk = transformChunkWithLocale(locale, chunk);
       return originalWrite.call(
@@ -58,7 +59,8 @@ export const withLocalization = (
   }
 
   return (req, res, parsedUrl) => {
-    let locale = getLocaleFromPathname(req.url) ?? defaultLocale;
+    const locale = getLocaleFromPathname(req.url) ?? defaultLocale;
+    // We don't want to change the output for the default locale, as it's the same as the original output.
     if (locale !== defaultLocale) {
       patchStream(req, res, locale);
     }

@@ -16,6 +16,11 @@ type LocaleLinkProps = DetailedHTMLProps<
   children: ReactNode;
 };
 
+/**
+ * A link that switches the locale when clicked.
+ *
+ * This component only needs to be used when you want to switc the locale, otherwise you can use a normal Link component.
+ */
 export const LocaleSwitchLink = forwardRef<HTMLAnchorElement, LocaleLinkProps>(
   ({ locale, children, ...rest }: LocaleLinkProps, ref) => {
     return (

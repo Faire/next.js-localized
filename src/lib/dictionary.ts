@@ -1,6 +1,6 @@
 import fs from "fs";
 import { MessageFormatElement } from "react-intl";
-import { createIntl, IntlShape } from "@formatjs/intl";
+import { createIntl, type IntlShape } from "@formatjs/intl";
 import { defaultLocale, Locale } from "@/lib/locale";
 
 type Dictionary =
@@ -40,5 +40,6 @@ export const getIntl = (locale: Locale) => {
   return intl;
 };
 
+// We cache the results of the dictionaries in memory on the server, to avoid reading the files from disk on every request.
 const dictionaryCache = new Map<Locale, Dictionary>();
 const intlCache = new Map<Locale, IntlShape>();

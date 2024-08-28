@@ -1,6 +1,8 @@
 import "server-only";
 import { headers } from "next/headers";
-import { getLocaleFromString, Locale, localeHeader } from "@/lib/locale";
+import { getLocaleFromString, Locale } from "@/lib/locale";
+
+export const localeHeader = "x-locale";
 
 export const getLocaleHeader = (): Locale => {
   const localeString = headers().get(localeHeader);

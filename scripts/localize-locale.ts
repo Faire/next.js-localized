@@ -1,9 +1,4 @@
-import {
-  defaultLocale,
-  getLocaleFromString,
-  Locale,
-  locales,
-} from "@/lib/locale";
+import { defaultLocale, getLocaleFromString, locales } from "@/lib/locale";
 import { transformAsync } from "@babel/core";
 import * as fs from "fs";
 import * as path from "path";
