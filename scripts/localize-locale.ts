@@ -14,7 +14,7 @@ const NEXT_CHUNKS_PATH = path.resolve(ROOT_PATH, ".next", "static", "chunks");
 const getLocaleArg = () => {
   const args = process.argv.slice(2); // Removes the first two elements
   if (args.length < 1) {
-    console.error("Usage: ts-node ./scripts/localize-locale.ts <locale>");
+    console.error("Usage: tsx ./scripts/localize-locale.ts <locale>");
     process.exit(1);
   }
   const localeString = args[0];
