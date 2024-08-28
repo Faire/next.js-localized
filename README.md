@@ -22,7 +22,7 @@ yarn dev:server # to run the custom express server that handles localizing chunk
 ```
 
 Open [`http://localhost:3000`](http://localhost:3000) with your browser to see the result!
-Note that localization does not work in development mode, as the build script is not run. For more information, see TMP.
+Note that localization does not work in development mode, as the build script is not run. For more information, see the [FAQs](#faqs).
 
 ## Production build
 
