@@ -1,5 +1,8 @@
 # Faire's Next.js Localization Starter Kit
 
+> [!NOTE]
+> This starter kit is based off of our blog post [Zero-runtime localization in Next.js](https://craft.faire.com/zero-runtime-localization-in-next-js-864e252e387d). Please note that it is not maintained.
+
 This repo is designed as a starting point for performant localization
 in Next.js.
 
